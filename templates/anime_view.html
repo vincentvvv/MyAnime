@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}{{anime.name}}{% endblock %}
+{% block content %}
+<div class ='anime container'>
+	<div class="col-sm-12">
+		<h1>{{anime.name}}</h1>
+	</div>
+	<div class="col-sm-12">
+		<h1>Episodes: {{anime.episodes}}</h1>
+	</div>	
+  <div class="col-sm-12 caption">
+      {% for tag in anime.tags %}
+      <span class="label label-default">{{tag.name}}</span>
+			{% endfor %}
+  </div>
+	<div class="col-sm-12">
+		<img src="/static/images/{{anime.image}}" class="img-rounded">
+	</div>
+	<div class="col-sm-12">
+		<div class="well">
+			<p>{{anime.description}}</p>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<a class="btn btn-default" href='{{url_for('editAnime', anime_id=anime.id)}}' role="button">Edit</a>
+		<a class="btn btn-default" href='{{url_for('listAnime')}}' role="button">Back</a>
+		  <a class="btn btn-danger" href='{{url_for('deleteAnime', anime_id=anime.id)}}' role="button">Delete</a>
+	</div>
+</div>
+{% endblock %}
+

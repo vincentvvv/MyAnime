@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block title %}New Anime{% endblock %}
+{% block content %}
+<div class ='addAnimes container'>
+<h1>Add Anime</h1>
+
+	<form action="#" enctype="multipart/form-data" method = 'post'>
+
+	  <div class="form-group">
+	    <label for="name">Name</label>
+	    <input type="text" class="form-control" id="name" placeholder="Anime Name" name='name'>
+	  </div>
+	  <div class="form-group">
+	    <label for="episodes">Episodes</label>
+	    <input type="text" class="form-control" id="episodes" placeholder="Total Episodes" name='episodes'>
+	  </div>
+	  <div class="form-group">
+	    <label for="description">Description</label>
+	    <textarea class="form-control" rows="3" id="description" placeholder="Description"name='description'></textarea>
+	  </div>
+	  <div class="form-group">
+	    <label for="imageUpload">Image Upload</label>
+	    <input id="imageUpload" type="file" name="file">
+	    <p class="help-block">Only accept JPEG, JPG, PNG.</p>
+	  </div>
+
+
+	  <p>Genres</p>
+	  <div class="checkbox">
+	  	<label>
+		  	<input type="checkbox" name="tags" value="Comedy" checked> Comedy
+			</label>
+			<label>
+		  	<input type="checkbox" name="tags" value="Shoen"> Shoen
+		  </label>
+		  <label>
+		  	<input type="checkbox" name="tags" value="Action"> Action
+		  </label>
+		  <label>
+		  	<input type="checkbox" name="tags" value="Gore"> Gore
+		  </label>
+		  <label>
+		  	<input type="checkbox" name="tags" value="Horror"> Horror
+		  </label>
+		  <label>
+		  	<input type="checkbox" name="tags" value="Romance"> Romance
+		  <label>
+		</div>
+
+		  <button type="submit" class="btn btn-default" value='Create'>Submit</button>
+		  <a class="btn btn-default" href='{{url_for('listAnime')}}' role="button">Cancel</a>
+	</form>
+</div>
+{% endblock %}
+

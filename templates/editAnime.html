@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block title %}Edit Anime{% endblock %}
+{% block content %}
+<div class ='editAnime container'>
+<h1>{{anime.name}}</h1>
+
+	<form action="#" enctype="multipart/form-data" method = 'post'>
+
+	  <div class="form-group">
+	    <label for="name">Name</label>
+	    <input type="text" class="form-control" id="name" placeholder="{{anime.name}}" name='name' value="{{anime.name}}">
+	  </div>
+	  <div class="form-group">
+	    <label for="episodes">Episodes</label>
+	    <input type="text" class="form-control" id="episodes" placeholder="{{anime.episodes}}" name='episodes' value="{{anime.episodes}}">
+	  </div>
+	  <div class="form-group">
+	    <label for="description">Description</label>
+	    <textarea class="form-control" rows="3" id="description" placeholder="Description"name='description'>{{anime.description}}</textarea>
+	  </div>
+	  <div class="form-group">
+	    <label for="imageUpload">Image Upload</label>
+	    <input id="imageUpload" type="file" name="file">
+	    <p class="help-block">Only accept JPEG, JPG, PNG.</p>
+	  </div>
+
+	  <p>Genres</p>
+	  <div class="checkbox">
+	  	<label>
+	  		{% if "Comedy" in anime.tags %}
+		  		<input type="checkbox" name="tags" value="Comedy" checked> Comedy
+		  	{% else %}
+		  		<input type="checkbox" name="tags" value="Comedy"> Comedy
+		  	{% endif %}
+			</label>
+			<label>
+	  		{% if "Shoen" in anime.tags %}
+		  		<input type="checkbox" name="tags" value="Shoen" checked> Shoen
+		  	{% else %}
+		  	<input type="checkbox" name="tags" value="Shoen"> Shoen
+		  	{% endif %}
+		  </label>
+		  <label>
+	  		{% if "Action" in anime.tags %}
+		  		<input type="checkbox" name="tags" value="Action" checked> Action
+		  	{% else %}
+		  	<input type="checkbox" name="tags" value="Action"> Action
+		  	{% endif %}
+		  </label>
+		  <label>
+	  		{% if "Gore" in anime.tags %}
+		  		<input type="checkbox" name="tags" value="Gore" checked> Gore
+		  	{% else %}
+		  	<input type="checkbox" name="tags" value="Gore"> Gore
+		  	{% endif %}
+		  </label>
+		  <label>
+	  		{% if "Horror" in anime.tags %}
+		  		<input type="checkbox" name="tags" value="Horror" checked> Horror
+		  	{% else %}
+		  	<input type="checkbox" name="tags" value="Horror"> Horror
+		  	{% endif %}
+		  </label>
+		  <label>
+	  		{% if "Romance" in anime.tags %}
+		  		<input type="checkbox" name="tags" value="Romance" checked> Romance
+		  	{% else %}
+		  	<input type="checkbox" name="tags" value="Romance"> Romance
+		  	{% endif %}
+		  <label>
+		</div>
+
+		  <button type="submit" class="btn btn-default" value='Create'>Edit</button>
+		  <a class="btn btn-default" href='{{url_for('listAnime')}}' role="button">Cancel</a>
+	</form>
+</div>
+{% endblock %}
+
